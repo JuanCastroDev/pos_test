@@ -1,0 +1,68 @@
+@api = http://localhost:4000/api
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJqdWFuLmR2LmNhc3RybzAyQGdtYWlsLmNvbSIsImZpcnN0X25hbWUiOiJKVUFOIERBVklEIiwibGFzdF9uYW1lIjoiQ0FTVFJPIiwiaWF0IjoxNjQzMzgwODI2LCJleHAiOjE2NDM0MDk2MjZ9.Cg6-A9-lZIlGfgdAu2V-i7S2QZcz2i7jPMGoHsU99aw
+
+### LOGIN ROUTE
+POST {{api}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "juan.dv.castro02@gmail.com",
+  "password": "123456789"
+}
+
+### PRIVATE GET PRODUCTS
+GET {{api}}/private/products
+Content-Type: application/json
+x-access-token: {{token}}
+
+### PRIVATE GET ONE PRODUCT
+GET {{api}}/private/products/1
+Content-Type: application/json
+x-access-token: {{token}}
+
+### PRIVATE POST NEW PRODUCT
+POST {{api}}/private/products
+Content-Type: application/json
+x-access-token: {{token}}
+
+{
+  "cod": "5345",
+  "name": "HARINA 500MG",
+  "count": "45",
+  "value": "1200"
+}
+
+### PRIVATE PUT UPDATE PRODUCT
+PUT {{api}}/private/products/3
+Content-Type: application/json
+x-access-token: {{token}}
+
+{
+  "count": "100",
+  "value": "3300"
+}
+
+### PRIVATE DELETE DELETE PRODUCT
+DELETE {{api}}/private/products/2
+Content-Type: application/json
+x-access-token: {{token}}
+
+
+### PRIVATE POST NEW INVOICE
+POST {{api}}/private/invoice
+Content-Type: application/json
+x-access-token: {{token}}
+
+{
+  "id_customer": "1006123694",
+  "first_name_customer": "JUAN DAVID",
+  "last_name_customer": "CASTRO",
+  "description": "",
+  "products": [ { "id": 1, "count": 4 }, { "id": 3, "count": 12 }, { "id": 2, "count": 14 } ],
+  "value_paid": "90000"
+}
+
+### PRIVATE GET INVOICE BY DATE
+GET {{api}}/private/invoice/2022-01-28
+Content-Type: application/json
+x-access-token: {{token}}

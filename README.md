@@ -1,2 +1,3 @@
-# pos_test
-POS SYSTEM TEST
+# POS EXAMPLE
+
+POS API system example
